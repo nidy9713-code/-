@@ -26,11 +26,33 @@ npm run dev
 | `NEXT_PUBLIC_TELEGRAM_BOT_URL` | Ссылка на Telegram-бот (по умолчанию `https://t.me/your_bot`) |
 | `NEXT_PUBLIC_SITE_URL` | URL сайта для metadata |
 
-## Деплой на Vercel
+## Деплой демо для заказчика (Vercel)
 
-1. Импортируйте репозиторий в [vercel.com](https://vercel.com)
-2. Добавьте `NEXT_PUBLIC_TELEGRAM_BOT_URL`
-3. Deploy — получите preview-URL для заказчика
+Проект в git. Дальше — **~5 минут**:
+
+### Способ A: Vercel CLI
+
+```powershell
+cd "c:\Users\nidy9\Школа вокала"
+npx vercel login
+npx vercel --prod
+```
+
+В [vercel.com](https://vercel.com) → Project → Settings → Environment Variables:
+
+- `NEXT_PUBLIC_TELEGRAM_BOT_URL` = `https://t.me/your_bot`
+- `NEXT_PUBLIC_SITE_URL` = URL сайта после деплоя
+
+### Способ B: GitHub + Vercel
+
+```powershell
+git remote add origin https://github.com/ВАШ_ЛОГИН/zvezda-karaoke.git
+git push -u origin main
+```
+
+→ [vercel.com/new](https://vercel.com/new) → Import → Deploy.
+
+Подробнее: [DEPLOY-DEMO.md](DEPLOY-DEMO.md) · Чеклист заказчику: [СОГЛАСОВАНИЕ-ДЕМО.md](СОГЛАСОВАНИЕ-ДЕМО.md)
 
 ## Чеклист согласования с заказчиком
 
