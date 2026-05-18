@@ -1,0 +1,11 @@
+export { HeroSection } from "./HeroSection";
+export { ProblemsSection } from "./ProblemsSection";
+export { TransformationSection } from "./TransformationSection";
+export { AboutSection } from "./AboutSection";
+export { ProgramSection } from "./ProgramSection";
+export { FormatSection } from "./FormatSection";
+export { TelegramSection } from "./TelegramSection";
+export { PricingSection } from "./PricingSection";
+export { ReviewsSection } from "./ReviewsSection";
+export { FaqSection } from "./FaqSection";
+export { FinalCtaSection } from "./FinalCtaSection";
