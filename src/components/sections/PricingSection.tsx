@@ -23,13 +23,16 @@ export function PricingSection() {
           >
             <Card
               className={cn(
-                "flex h-full flex-col",
-                plan.featured &&
-                  "border-2 border-sage bg-gradient-to-b from-sage-light/50 to-card shadow-card md:scale-[1.02]",
+                "flex h-full flex-col transition-all duration-300",
+                plan.featured
+                  ? "border-2 border-sage bg-gradient-to-b from-sage-light/50 to-card shadow-xl md:scale-[1.05] z-10"
+                  : "hover:shadow-lg",
               )}
             >
               {plan.featured && plan.badge && (
-                <Badge className="mb-4 self-start">{plan.badge}</Badge>
+                <Badge className="mb-4 self-start bg-sage-dark text-white border-none px-3 py-1 shadow-sm">
+                  {plan.badge}
+                </Badge>
               )}
               <h3 className="font-display text-xl font-bold text-primary">{plan.name}</h3>
               <p className="mt-2 font-display text-3xl font-bold text-sage-darker">{plan.price}</p>

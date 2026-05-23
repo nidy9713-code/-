@@ -22,7 +22,7 @@ export function Section({
   variant = "base",
 }: SectionProps) {
   return (
-    <section id={id} className={cn("py-14 md:py-20", variants[variant], className)}>
+    <section id={id} className={cn("py-20 md:py-32", variants[variant], className)}>
       <Container>{children}</Container>
     </section>
   );
@@ -40,20 +40,20 @@ export function SectionHeader({
   centered?: boolean;
 }) {
   return (
-    <div className={cn("mb-8 md:mb-12", centered && "text-center")}>
+    <div className={cn("mb-12 md:mb-16", centered && "text-center")}>
       {eyebrow && (
-        <span className={cn("section-eyebrow mb-3 block", centered && "mx-auto")}>
+        <span className={cn("section-eyebrow mb-4 block", centered && "mx-auto")}>
           {eyebrow}
         </span>
       )}
-      <h2 className="text-balance font-display text-2xl font-bold tracking-tight text-primary md:text-3xl lg:text-[2rem]">
+      <h2 className="text-balance font-display text-3xl font-bold tracking-tight text-primary md:text-4xl lg:text-5xl">
         {title}
       </h2>
-      <div className={cn("section-title-accent", centered && "mx-auto")} aria-hidden />
+      <div className={cn("section-title-accent mt-4", centered && "mx-auto")} aria-hidden />
       {subtitle && (
         <p
           className={cn(
-            "mt-4 max-w-xl text-base leading-relaxed text-muted md:text-lg",
+            "mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg",
             centered && "mx-auto",
           )}
         >

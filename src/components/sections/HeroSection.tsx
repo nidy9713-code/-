@@ -12,7 +12,7 @@ export function HeroSection() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-base via-[#f2f7f0] to-sage-light/40 pb-14 pt-8 md:pb-20 md:pt-12">
+    <section className="relative overflow-hidden bg-gradient-to-br from-base via-[#f2f7f0] to-sage-light/40 pb-20 pt-12 md:pb-32 md:pt-20">
       <div
         className="pointer-events-none absolute -right-20 top-10 h-64 w-64 rounded-full bg-sage/20 blur-3xl"
         aria-hidden
@@ -22,20 +22,20 @@ export function HeroSection() {
         aria-hidden
       />
       <Container className="relative">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
           >
-            <p className="section-eyebrow mb-4">{hero.eyebrow}</p>
-            <p className="mb-2 text-sm font-medium text-sage-darker">
+            <p className="section-eyebrow mb-6">{hero.eyebrow}</p>
+            <p className="mb-3 text-sm font-medium tracking-wider uppercase text-sage-darker/80">
               Онлайн-курс «Звезда караоке»
             </p>
-            <h1 className="text-balance font-display text-[1.75rem] font-bold leading-[1.15] text-primary sm:text-4xl lg:text-[2.75rem]">
+            <h1 className="text-balance font-display text-4xl font-extrabold leading-[1.1] text-primary sm:text-5xl lg:text-6xl xl:text-7xl">
               {hero.title}
             </h1>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-muted md:text-lg">
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted md:text-xl">
               {hero.subtitle}
             </p>
             <div className="mt-7">
