@@ -1,7 +1,6 @@
 import { pricing } from "@/config/site";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Badge } from "@/components/ui/Badge";
-import { Card } from "@/components/ui/Card";
 import { TelegramCtaButton } from "@/components/ui/TelegramCtaButton";
 import { Section, SectionHeader } from "@/components/layout/Section";
 import { cn } from "@/lib/cn";
@@ -10,49 +9,60 @@ export function PricingSection() {
   return (
     <Section id="pricing" variant="section">
       <SectionHeader
-        eyebrow="Тарифы"
-        title={pricing.title}
-        subtitle={pricing.subtitle}
+        eyebrow="Обучение"
+        title="Выбери свой тариф"
+        subtitle="Доступ к урокам сразу после оплаты"
       />
-      <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
+      <div className="grid gap-8 md:grid-cols-3 md:items-stretch">
         {pricing.plans.map((plan, i) => (
           <FadeIn
             key={plan.id}
             delay={i * 0.08}
             className={cn(plan.featured && "md:order-2 md:-mt-4 md:mb-4")}
           >
-            <Card
+            <div
               className={cn(
-                "flex h-full flex-col transition-all duration-300",
+                "flex h-full flex-col rounded-[2.5rem] p-8 transition-all duration-300",
                 plan.featured
-                  ? "border-2 border-sage bg-gradient-to-b from-sage-light/50 to-card shadow-xl md:scale-[1.05] z-10"
-                  : "hover:shadow-lg",
+                  ? "bg-white border-2 border-warm shadow-2xl md:scale-[1.05] z-10"
+                  : "bg-white/50 border border-border hover:bg-white hover:shadow-xl",
               )}
             >
-              {plan.featured && plan.badge && (
-                <Badge className="mb-4 self-start bg-sage-dark text-white border-none px-3 py-1 shadow-sm">
-                  {plan.badge}
+              {plan.featured && (
+                <Badge className="mb-6 self-start bg-warm text-black border-none px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]">
+                  Популярный
                 </Badge>
               )}
-              <h3 className="font-display text-xl font-bold text-primary">{plan.name}</h3>
-              <p className="mt-2 font-display text-3xl font-bold text-sage-darker">{plan.price}</p>
-              <ul className="mt-6 flex-1 space-y-2">
+              <div className="mb-8">
+                <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-muted-light">
+                  {plan.name}
+                </h3>
+                <p className="mt-4 font-display text-4xl font-extrabold text-primary">
+                  {plan.price}
+                </p>
+                <p className="mt-2 text-sm text-muted-light font-medium">Доступ к урокам на 3 месяца</p>
+              </div>
+              <ul className="flex-1 space-y-4">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex gap-2 text-sm text-muted">
-                    <span className="text-sage-dark">✓</span> {f}
+                  <li key={f} className="flex gap-3 text-sm font-medium text-primary">
+                    <span className="text-warm-dark">✓</span> {f}
                   </li>
                 ))}
               </ul>
-              <div className="mt-8">
+              <div className="mt-10">
                 <TelegramCtaButton
                   startParam={`landing_pricing_${plan.id}`}
-                  variant={plan.featured ? "primary" : "secondary"}
-                  className="w-full"
+                  className={cn(
+                    "w-full !py-4 !text-sm !font-bold !rounded-2xl transition-all",
+                    plan.featured
+                      ? "!bg-black !text-white hover:!bg-primary"
+                      : "!bg-white !text-black border border-black/10 hover:!bg-black hover:!text-white"
+                  )}
                 >
-                  Узнать в Telegram
+                  Выбрать
                 </TelegramCtaButton>
               </div>
-            </Card>
+            </div>
           </FadeIn>
         ))}
       </div>

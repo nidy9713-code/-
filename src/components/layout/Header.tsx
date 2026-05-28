@@ -11,13 +11,13 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-base/95 shadow-soft backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-white/5 bg-black/80 shadow-soft backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6 lg:px-8">
         <Link href="/" className="flex flex-col">
-          <span className="font-display text-lg font-bold text-sage-darker">
+          <span className="font-display text-lg font-bold text-white">
             {site.name}
           </span>
-          <span className="text-xs text-muted">{site.tagline}</span>
+          <span className="text-xs text-white/50">{site.tagline}</span>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Основная навигация">
@@ -25,7 +25,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-muted transition-colors hover:text-sage-dark"
+              className="text-sm font-medium text-white/70 transition-colors hover:text-warm"
             >
               {item.label}
             </Link>
@@ -33,7 +33,10 @@ export function Header() {
         </nav>
 
         <div className="hidden shrink-0 lg:block">
-          <TelegramCtaButton startParam="landing_header" className="!px-4 !py-2 !text-sm">
+          <TelegramCtaButton
+            startParam="landing_header"
+            className="!px-4 !py-2 !text-sm !bg-warm !text-black hover:!bg-warm-dark"
+          >
             Бесплатный урок
           </TelegramCtaButton>
         </div>
@@ -51,7 +54,7 @@ export function Header() {
 
       <div
         className={cn(
-          "border-t border-border bg-base lg:hidden",
+          "border-t border-white/5 bg-black lg:hidden",
           open ? "block" : "hidden",
         )}
       >
@@ -60,14 +63,17 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-primary hover:bg-section"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/5"
               onClick={() => setOpen(false)}
             >
               {item.label}
             </Link>
           ))}
           <div className="mt-2 pt-2">
-            <TelegramCtaButton startParam="landing_mobile_menu" className="w-full">
+            <TelegramCtaButton
+              startParam="landing_mobile_menu"
+              className="w-full !bg-warm !text-black"
+            >
               Бесплатный урок
             </TelegramCtaButton>
           </div>

@@ -1,0 +1,4 @@
+apps/bot
+node_modules
+.next
+.vercel
