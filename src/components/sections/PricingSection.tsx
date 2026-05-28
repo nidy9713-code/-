@@ -7,76 +7,130 @@ import { cn } from "@/lib/cn";
 
 export function PricingSection() {
   return (
-    <Section id="pricing" variant="section">
+    <Section id="pricing" variant="base" className="relative overflow-hidden">
+      {/* Background Glows */}
+      <div className="absolute -right-20 top-1/2 h-96 w-96 rounded-full bg-neon-pink/5 blur-[100px]" />
+      <div className="absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-neon-purple/5 blur-[100px]" />
+
       <SectionHeader
-        eyebrow="Обучение"
-        title="Выбери свой тариф"
-        subtitle="Доступ к урокам сразу после оплаты"
+        eyebrow="Тарифы"
+        title="Начни петь сегодня"
+        subtitle="Выбери подходящий формат обучения и начни свой путь к уверенному вокалу"
+        centered
+        className="mb-24"
       />
-      <div className="grid gap-8 md:grid-cols-3 md:items-stretch">
+      
+      <div className="grid gap-10 md:grid-cols-3 md:items-stretch">
         {pricing.plans.map((plan, i) => (
           <FadeIn
             key={plan.id}
-            delay={i * 0.08}
-            className={cn(plan.featured && "md:order-2 md:-mt-4 md:mb-4")}
+            delay={i * 0.1}
+            className={cn(plan.featured && "md:order-2 md:-mt-8 md:mb-8")}
           >
             <div
               className={cn(
-                "flex h-full flex-col rounded-[2.5rem] p-8 transition-all duration-300",
+                "group relative flex h-full flex-col rounded-4xl p-10 transition-all duration-500",
                 plan.featured
-                  ? "bg-white border-2 border-warm shadow-2xl md:scale-[1.05] z-10"
-                  : "bg-white/50 border border-border hover:bg-white hover:shadow-xl",
+                  ? "bg-premium-dark text-white shadow-premium md:scale-[1.08] z-10"
+                  : "bg-white border border-border hover:shadow-premium hover:-translate-y-2",
               )}
             >
               {plan.featured && (
-                <Badge className="mb-6 self-start bg-warm text-black border-none px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]">
-                  Популярный
-                </Badge>
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <Badge className="bg-neon-pink text-white border-none px-6 py-2 font-black uppercase tracking-[0.2em] text-[10px] shadow-[0_0_20px_rgba(255,0,255,0.4)]">
+                    Most Popular
+                  </Badge>
+                </div>
               )}
-              <div className="mb-8">
-                <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-muted-light">
+              
+              <div className="mb-10">
+                <h3 className={cn(
+                  "font-display text-xs font-black uppercase tracking-[0.3em]",
+                  plan.featured ? "text-neon-pink" : "text-neon-purple"
+                )}>
                   {plan.name}
                 </h3>
-                <p className="mt-4 font-display text-4xl font-extrabold text-primary">
-                  {plan.price}
+                <div className="mt-6 flex items-baseline gap-2">
+                  <p className="font-display text-5xl font-black tracking-tighter">
+                    {plan.price}
+                  </p>
+                </div>
+                <p className={cn(
+                  "mt-3 text-sm font-medium",
+                  plan.featured ? "text-white/40" : "text-muted-light"
+                )}>
+                  Доступ ко всем материалам на 3 месяца
                 </p>
-                <p className="mt-2 text-sm text-muted-light font-medium">Доступ к урокам на 3 месяца</p>
               </div>
-              <ul className="flex-1 space-y-4">
+
+              <ul className="flex-1 space-y-5">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex gap-3 text-sm font-medium text-primary">
-                    <span className="text-warm-dark">✓</span> {f}
+                  <li key={f} className="flex gap-4 text-sm font-bold leading-snug">
+                    <span className={cn(
+                      "flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px]",
+                      plan.featured ? "bg-white/10 text-neon-pink" : "bg-neon-purple/10 text-neon-purple"
+                    )}>
+                      ✓
+                    </span>
+                    <span className={plan.featured ? "text-white/80" : "text-primary/80"}>
+                      {f}
+                    </span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-10">
+
+              <div className="mt-12">
                 <TelegramCtaButton
                   startParam={`landing_pricing_${plan.id}`}
                   className={cn(
-                    "w-full !py-4 !text-sm !font-bold !rounded-2xl transition-all",
+                    "w-full !h-16 !text-sm !font-black !uppercase !tracking-[0.2em] !rounded-2xl transition-all duration-300",
                     plan.featured
-                      ? "!bg-black !text-white hover:!bg-primary"
-                      : "!bg-white !text-black border border-black/10 hover:!bg-black hover:!text-white"
+                      ? "!bg-gradient-to-r !from-neon-pink !to-neon-purple !text-white !shadow-[0_0_30px_rgba(255,0,255,0.3)] hover:!scale-105 hover:!shadow-[0_0_50px_rgba(255,0,255,0.5)]"
+                      : "!bg-primary !text-white hover:!bg-black hover:!shadow-premium"
                   )}
                 >
-                  Выбрать
+                  Выбрать тариф
                 </TelegramCtaButton>
+              </div>
+              
+              {/* Subtle handcrafted detail */}
+              <div className={cn(
+                "mt-6 text-center text-[10px] font-bold uppercase tracking-widest opacity-30",
+                plan.featured ? "text-white" : "text-primary"
+              )}>
+                Secure Payment • Instant Access
               </div>
             </div>
           </FadeIn>
         ))}
       </div>
 
-      <FadeIn className="mt-10">
-        <div className="rounded-2xl border border-warm/50 bg-gradient-to-r from-section to-warm/20 p-6 text-center md:p-8">
-          <h3 className="font-display text-xl font-semibold text-primary">
-            {pricing.miniCourse.title}
-          </h3>
-          <p className="mx-auto mt-2 max-w-xl text-muted">{pricing.miniCourse.description}</p>
-          <div className="mt-6">
-            <TelegramCtaButton startParam="landing_mini_course" variant="warm">
-              {pricing.miniCourse.cta}
-            </TelegramCtaButton>
+      {/* Mini-Course CTA - Redesigned as a Premium Banner */}
+      <FadeIn delay={0.4} className="mt-32">
+        <div className="relative overflow-hidden rounded-4xl bg-section-alt p-8 md:p-16 border border-border">
+          <div className="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-neon-purple/10 to-transparent" />
+          
+          <div className="relative z-10 flex flex-col items-center text-center md:flex-row md:text-left md:justify-between">
+            <div className="max-w-2xl space-y-4">
+              <Badge className="bg-white/50 text-neon-purple border-none px-4 py-1 text-[10px] font-black uppercase tracking-widest">
+                Special Offer
+              </Badge>
+              <h3 className="font-display text-3xl font-black text-primary md:text-4xl">
+                {pricing.miniCourse.title}
+              </h3>
+              <p className="text-lg font-medium text-muted leading-relaxed">
+                {pricing.miniCourse.description}
+              </p>
+            </div>
+            
+            <div className="mt-10 md:mt-0">
+              <TelegramCtaButton 
+                startParam="landing_mini_course" 
+                className="!h-16 !rounded-2xl !bg-white !text-primary !px-10 !font-black !uppercase !tracking-widest !shadow-soft hover:!shadow-premium hover:!scale-105 transition-all border border-border"
+              >
+                {pricing.miniCourse.cta}
+              </TelegramCtaButton>
+            </div>
           </div>
         </div>
       </FadeIn>

@@ -6,13 +6,13 @@ type SectionProps = {
   id?: string;
   children: ReactNode;
   className?: string;
-  variant?: "base" | "section" | "sage";
+  variant?: "base" | "section" | "alt";
 };
 
 const variants = {
   base: "bg-base",
   section: "bg-section",
-  sage: "bg-gradient-to-b from-sage-light/50 to-base",
+  alt: "bg-section-alt",
 };
 
 export function Section({
@@ -33,27 +33,28 @@ export function SectionHeader({
   subtitle,
   eyebrow,
   centered = true,
+  className,
 }: {
   title: string;
   subtitle?: string;
   eyebrow?: string;
   centered?: boolean;
+  className?: string;
 }) {
   return (
-    <div className={cn("mb-12 md:mb-16", centered && "text-center")}>
+    <div className={cn("mb-16 md:mb-24", centered && "text-center", className)}>
       {eyebrow && (
-        <span className={cn("section-eyebrow mb-4 block", centered && "mx-auto")}>
+        <span className={cn("section-eyebrow mb-6 block", centered && "mx-auto")}>
           {eyebrow}
         </span>
       )}
-      <h2 className="text-balance font-display text-3xl font-bold tracking-tight text-primary md:text-4xl lg:text-5xl">
+      <h2 className="text-balance font-display text-4xl font-black leading-[1.1] tracking-tight text-primary md:text-5xl lg:text-6xl">
         {title}
       </h2>
-      <div className={cn("section-title-accent mt-4", centered && "mx-auto")} aria-hidden />
       {subtitle && (
         <p
           className={cn(
-            "mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg",
+            "mt-8 max-w-2xl text-lg font-medium leading-relaxed text-muted md:text-xl",
             centered && "mx-auto",
           )}
         >
