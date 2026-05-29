@@ -15,10 +15,10 @@ export function HeroSection() {
       {/* Background Image with Premium Blending */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-singer.png"
+          src="/images/hero-singer-new.png"
           alt="Научись петь уверенно"
           fill
-          className="object-cover object-center opacity-80 lg:object-right"
+          className="object-cover object-center opacity-90 lg:object-right"
           priority
         />
         
@@ -27,12 +27,12 @@ export function HeroSection() {
         <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-neon-purple/10 blur-[100px]" aria-hidden />
         
         {/* Overlays for Cinematic Feel */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent lg:via-[#050505]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/70 to-transparent lg:via-[#050505]/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent lg:hidden" />
       </div>
 
       <Container className="relative z-10">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,10 +46,10 @@ export function HeroSection() {
               {hero.eyebrow}
             </span>
             
-            <h1 className="text-balance font-display text-6xl font-black leading-[0.95] tracking-tighter sm:text-7xl lg:text-8xl xl:text-9xl">
+            <h1 className="text-balance font-display text-5xl font-black leading-[1.05] tracking-tight sm:text-7xl lg:text-8xl xl:text-8xl">
               Научись петь <br />
               <span className="premium-gradient-text italic">уверенно</span><br />
-              <span className="text-4xl font-light tracking-normal opacity-80 sm:text-5xl lg:text-6xl">
+              <span className="text-3xl font-light tracking-normal opacity-80 sm:text-5xl lg:text-6xl">
                 и с удовольствием!
               </span>
             </h1>
