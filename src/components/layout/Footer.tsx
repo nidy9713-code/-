@@ -20,10 +20,6 @@ export function Footer() {
             <p className="max-w-xs text-sm leading-relaxed text-white/40">
               Твой путь к уверенному вокалу начинается здесь. Профессиональное обучение в удобном формате.
             </p>
-            
-            <div className="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-neon-pink backdrop-blur-sm">
-              {site.demoBadge}
-            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-12 sm:gap-24">

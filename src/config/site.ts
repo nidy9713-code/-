@@ -1,7 +1,6 @@
 export const site = {
   name: "Звезда караоке",
   tagline: "Онлайн-курс вокала",
-  demoBadge: "Демо v0.1 — для согласования",
   contacts: {
     telegram: "https://t.me/your_bot",
     whatsapp: "https://wa.me/79000000000",
