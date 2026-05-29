@@ -10,46 +10,45 @@ export function ProgramSection() {
       <SectionHeader
         eyebrow="Программа"
         title="Путь к твоему голосу"
-        subtitle="6 шагов от первого вдоха до уверенного выступления"
+        subtitle={`${program.modules.length} шага от первого вдоха до уверенного выступления`}
         centered
+        className="mb-12 md:mb-16"
       />
       
-      <div className="mt-24 relative">
+      <div className="mt-20 relative">
         {/* Decorative path line for desktop */}
         <div className="absolute top-1/2 left-0 hidden h-px w-full bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
         
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-6 lg:gap-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
           {program.modules.map((mod, i) => (
             <FadeIn key={mod.title} delay={i * 0.1}>
-              <div className={`group relative flex flex-col items-center text-center ${
-                i % 2 === 1 ? 'lg:pt-16' : 'lg:pb-16'
-              }`}>
+              <div className="group relative flex flex-col items-center text-center">
                 {/* Module Number - Handcrafted feel */}
-                <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-full border-2 border-neon-purple/20 bg-white font-display text-xs font-black text-neon-purple shadow-soft transition-colors duration-300 group-hover:border-neon-pink group-hover:text-neon-pink">
+                <div className="mb-4 flex h-8 w-8 items-center justify-center rounded-full border-2 border-neon-purple/20 bg-white font-display text-[10px] font-black text-neon-purple shadow-soft transition-colors duration-300 group-hover:border-neon-pink group-hover:text-neon-pink">
                   0{mod.number}
                 </div>
 
-                <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-3xl bg-section shadow-soft transition-all duration-500 group-hover:shadow-premium group-hover:-translate-y-2">
-                  <span className="text-4xl transition-transform duration-500 group-hover:scale-110">
+                <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-2xl bg-section shadow-soft transition-all duration-500 group-hover:shadow-premium group-hover:-translate-y-1">
+                  <span className="text-3xl transition-transform duration-500 group-hover:scale-110">
                     {icons[i] || "✨"}
                   </span>
                   
                   {/* Subtle glow on hover */}
-                  <div className="absolute inset-0 -z-10 rounded-3xl bg-neon-pink/0 blur-xl transition-all duration-500 group-hover:bg-neon-pink/10" />
+                  <div className="absolute inset-0 -z-10 rounded-2xl bg-neon-pink/0 blur-xl transition-all duration-500 group-hover:bg-neon-pink/10" />
                 </div>
 
-                <div className="mt-8 space-y-2">
-                  <h3 className="font-display text-base font-black leading-tight text-primary px-2">
+                <div className="mt-6 space-y-1">
+                  <h3 className="font-display text-sm font-black leading-tight text-primary px-2">
                     {mod.title}
                   </h3>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-light">
+                  <p className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-light">
                     Step {i + 1}
                   </p>
                 </div>
 
                 {/* Vertical connector for mobile/tablet */}
                 {i < program.modules.length - 1 && (
-                  <div className="mt-8 h-8 w-px bg-border lg:hidden" />
+                  <div className="mt-6 h-6 w-px bg-border lg:hidden" />
                 )}
               </div>
             </FadeIn>
@@ -58,10 +57,10 @@ export function ProgramSection() {
       </div>
       
       {/* Handcrafted footer note */}
-      <div className="mt-24 flex justify-center">
-        <div className="inline-flex items-center gap-4 rounded-2xl border border-dashed border-border p-6 text-sm font-medium text-muted">
-          <span className="text-2xl">🎓</span>
-          <p>Каждый модуль включает практические упражнения и обратную связь</p>
+      <div className="mt-16 flex justify-center">
+        <div className="inline-flex items-center gap-4 rounded-2xl border border-dashed border-border px-6 py-4 text-sm font-medium text-muted">
+          <span className="text-xl">🎓</span>
+          <p>Практика и обратная связь в каждом модуле</p>
         </div>
       </div>
     </Section>

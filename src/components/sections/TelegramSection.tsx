@@ -44,11 +44,6 @@ export function TelegramSection() {
                 {telegramBlock.cta}
               </TelegramCtaButton>
             </div>
-            
-            {/* Handcrafted detail */}
-            <div className="absolute bottom-8 right-10 text-[10px] font-black uppercase tracking-widest text-border">
-              Join 1000+ Students
-            </div>
           </div>
         </FadeIn>
 

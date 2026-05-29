@@ -1,6 +1,7 @@
 import { about } from "@/config/site";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Button } from "@/components/ui/Button";
+import { TelegramCtaButton } from "@/components/ui/TelegramCtaButton";
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/layout/Section";
 import Image from "next/image";
@@ -57,9 +58,12 @@ export function AboutSection() {
             </ul>
             
             <div className="pt-6">
-              <Button variant="secondary" className="!h-14 !rounded-2xl !px-10 !text-base !font-bold !shadow-soft hover:!shadow-premium !bg-premium-dark !text-white">
-                Подробнее о наставнике
-              </Button>
+              <TelegramCtaButton 
+                startParam="mentor_sofia"
+                className="!h-14 !rounded-2xl !bg-neon-purple !px-10 !text-base !font-bold !text-white hover:!bg-neon-purple/90 !shadow-soft hover:!shadow-premium transition-all"
+              >
+                Записаться к Софье
+              </TelegramCtaButton>
             </div>
           </div>
         </FadeIn>
