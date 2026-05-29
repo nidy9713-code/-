@@ -48,7 +48,7 @@ export function HeroSection() {
             
             <h1 className="font-display text-5xl font-black leading-[1.05] sm:text-7xl lg:text-8xl xl:text-[7.5rem]">
               Научись петь <br />
-              <span className="premium-gradient-text italic">уверенно</span><br />
+              <span className="premium-gradient-text italic pr-2 sm:pr-4">уверенно</span><br />
               <span className="text-3xl font-light tracking-normal opacity-80 sm:text-5xl lg:text-6xl">
                 и с удовольствием!
               </span>
